@@ -16,7 +16,16 @@ It ships a Python runner (`scripts/generate.py`) that stages reference images, r
 git clone https://github.com/DananzMolt/codex-image ~/.claude/skills/codex-image
 ```
 
-For Codex, clone into `~/.codex/skills/codex-image` instead — `agents/openai.yaml` carries the Codex plugin manifest.
+Install the complete folder — `SKILL.md` alone will not work, the runner is required. Then invoke `/codex-image`. `agents/openai.yaml` is optional Codex UI metadata.
+
+If Pillow is missing, keep it out of your system Python:
+
+```bash
+python3 -m venv "$HOME/.cache/codex-image/venv"
+"$HOME/.cache/codex-image/venv/bin/python" -m pip install Pillow
+```
+
+Then use that environment's Python to run `scripts/generate.py`. The runner never installs dependencies or changes your login for you.
 
 ## Usage
 
